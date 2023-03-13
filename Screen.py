@@ -68,10 +68,14 @@ class Screen(object):
         array: np.ndarray = self.__grab(X=RECT_X, Y=RECT_Y, W=RECT_W, H=RECT_H)
         return array
 
-    def update_img(self) -> np.ndarray:
+    def __update_img(self) -> None:
         '''
         :return: np.ndarray: возвращение необработанного фрейма для дальнейшей обработки и анализа
         '''
         # получение нормализованного от 0 до 1 np.ndarray массив в формате RGB
         self.__array: np.ndarray = self.__getWindowRect(WINDOW_NAME=self.__WINDOW_NAME)
+
+    @property
+    def updated_img(self):
+        self.__update_img()
         return self.__array

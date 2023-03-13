@@ -11,4 +11,5 @@ class FarmingBot(object):
         self.__execute()
 
     def __execute(self):
-        pass
+        while True:
+            self.__gameObject.get_objects(OBJECT_NAME="test")
